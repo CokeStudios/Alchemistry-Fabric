@@ -1,9 +1,6 @@
 package com.smashingmods.alchemistry.api.blockentity;
 
-import com.smashingmods.alchemistry.common.block.reactor.ReactorCoreBlock;
-import com.smashingmods.alchemistry.common.block.reactor.ReactorEnergyBlockEntity;
-import com.smashingmods.alchemistry.common.block.reactor.ReactorInputBlockEntity;
-import com.smashingmods.alchemistry.common.block.reactor.ReactorOutputBlockEntity;
+import com.smashingmods.alchemistry.common.block.reactor.*;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
@@ -41,7 +38,6 @@ public abstract class AbstractReactorBlockEntity extends AbstractInventoryBlockE
             if (reactorShape == null) {
                 setReactorShape(new ReactorShape(getPos(), getReactorType(), world));
             }
-
             setMultiblockHandlers();
             if (isValidMultiblock()) {
                 switch (getPowerState()) {
@@ -103,9 +99,9 @@ public abstract class AbstractReactorBlockEntity extends AbstractInventoryBlockE
                         .findFirst()
                         .ifPresent(blockPos -> {
                             BlockState energyState = world.getBlockState(blockPos);
-                            world.setBlockState(blockPos, Blocks.AIR.getDefaultState());
+                            world.setBlockState(blockPos, Blocks.AIR.getDefaultState(), 0);
                             world.setBlockState(blockPos, energyState);
-                            setEnergyFound(true);
+                            energyFound = true;
                             reactorEnergyBlockEntity = (ReactorEnergyBlockEntity) world.getBlockEntity(blockPos);
                         });
             } else {
@@ -118,8 +114,8 @@ public abstract class AbstractReactorBlockEntity extends AbstractInventoryBlockE
                         .findFirst()
                         .ifPresent(blockPos -> {
                             BlockState inputState = world.getBlockState(blockPos);
-                            world.setBlockState(blockPos, Blocks.AIR.getDefaultState(), 7);
-                            world.setBlockState(blockPos, inputState, 7);
+                            world.setBlockState(blockPos, Blocks.AIR.getDefaultState(), 0);
+                            world.setBlockState(blockPos, inputState);
                             inputFound = true;
                             reactorInputBlockEntity = (ReactorInputBlockEntity) world.getBlockEntity(blockPos);
                         });
@@ -128,14 +124,13 @@ public abstract class AbstractReactorBlockEntity extends AbstractInventoryBlockE
             }
 
             if (reactorOutputBlockEntity == null || !outputFound) {
-                outputFound = false;
                 BlockPos.stream(reactorBox)
                         .filter(blockPos -> world.getBlockEntity(blockPos) instanceof ReactorOutputBlockEntity)
                         .findFirst()
                         .ifPresent(blockPos -> {
                             BlockState outputState = world.getBlockState(blockPos);
-                            world.setBlockState(blockPos, Blocks.AIR.getDefaultState(), 7);
-                            world.setBlockState(blockPos, outputState, 7);
+                            world.setBlockState(blockPos, Blocks.AIR.getDefaultState(), 0);
+                            world.setBlockState(blockPos, outputState);
                             outputFound = true;
                             reactorOutputBlockEntity = (ReactorOutputBlockEntity) world.getBlockEntity(blockPos);
                         });
@@ -181,13 +176,13 @@ public abstract class AbstractReactorBlockEntity extends AbstractInventoryBlockE
                             case DISABLED, OFF -> {
                                 if (coreState.equals(PowerState.ON)) {
                                     BlockState newState = blockState.with(PowerStateProperty.POWER_STATE, PowerState.OFF);
-                                    world.setBlockState(blockPos, newState, 7);
+                                    world.setBlockState(blockPos, newState, 3);
                                 }
                             }
                             case STANDBY, ON -> {
                                 if (coreState.equals(PowerState.OFF)) {
                                     BlockState newState = blockState.with(PowerStateProperty.POWER_STATE, PowerState.ON);
-                                    world.setBlockState(blockPos, newState, 7);
+                                    world.setBlockState(blockPos, newState, 3);
                                 }
                             }
                         }
@@ -200,33 +195,9 @@ public abstract class AbstractReactorBlockEntity extends AbstractInventoryBlockE
         return false;
     }
 
-    public void resetIO() {
-        if (world != null && !world.isClient()) {
-            setMultiblockHandlers();
-            if (reactorEnergyBlockEntity != null) {
-                BlockState energyState = reactorEnergyBlockEntity.getCachedState();
-                BlockPos energyPos = reactorEnergyBlockEntity.getPos();
-                world.setBlockState(energyPos, Blocks.AIR.getDefaultState());
-                world.setBlockState(energyPos, energyState);
-            }
-            if (reactorInputBlockEntity != null) {
-                BlockState inputState = reactorInputBlockEntity.getCachedState();
-                BlockPos inputPos = reactorInputBlockEntity.getPos();
-                world.setBlockState(inputPos, Blocks.AIR.getDefaultState());
-                world.setBlockState(inputPos, inputState);
-            }
-            if (reactorOutputBlockEntity != null) {
-                BlockState outputState = reactorOutputBlockEntity.getCachedState();
-                BlockPos outputPos = reactorOutputBlockEntity.getPos();
-                world.setBlockState(outputPos, Blocks.AIR.getDefaultState());
-                world.setBlockState(outputPos, outputState);
-            }
-        }
-    }
-
     public void onRemove() {
         if (world != null && !world.isClient()) {
-            resetIO();
+            setMultiblockHandlers(); // resetIO()
             BlockPos.stream(reactorShape.getCoreBoundingBox()).forEach(blockPos -> {
                 BlockState blockState = world.getBlockState(blockPos);
                 if (blockState.getBlock() instanceof ReactorCoreBlock) {
