@@ -25,10 +25,9 @@ public class FusionControllerScreenHandler extends AbstractAlchemistryScreenHand
     }
 
     protected FusionControllerScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, Inventory inventory, PropertyDelegate delegate) {
-        super(ScreenRegistry.FUSION_SCREEN_HANDLER, syncId, playerInventory, blockEntity, inventory, delegate, 1, DissolverBlockEntity.INVENTORY_SIZE-1);
+        super(ScreenRegistry.FUSION_SCREEN_HANDLER, syncId, playerInventory, blockEntity, inventory, delegate, 2, DissolverBlockEntity.INVENTORY_SIZE-1);
 
-        addSlots(Slot::new, inventory, 0, 1, 44, 35);
-        addSlots(Slot::new, inventory, 1, 1, 62, 35);
+        addSlots(Slot::new, inventory, 1, 2, 0, 2, 44, 35);
         addSlots(OutputSlot::new, inventory, 2, 1, 134, 35);
 
         this.propertyDelegate = delegate;
