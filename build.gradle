@@ -32,14 +32,14 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// ChemLib
-	modImplementation "com.github.SmashingMods:ChemLib-Fabric:1.19.2-1.0.0"
+	modImplementation "com.github.CokeStudios:ChemLib-Fabric:1.20.1-1.0.4"
 
 	// Patchouli
-	modImplementation "vazkii.patchouli:Patchouli:1.19-74-FABRIC"
+	modImplementation "vazkii.patchouli:Patchouli:1.20.1-84-FABRIC"
 
 	// Roughly Enough Items (REI)
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:9.1.520"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:9.1.520"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:12.1.780"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.1.780"
 
 	// Tech Reborn Energy API
 	include modApi('teamreborn:energy:2.2.0') {
@@ -47,9 +47,9 @@ dependencies {
 	}
 
 	// Forge Config API
-	include implementation('com.electronwill.night-config:core:3.6.5')
-	include implementation('com.electronwill.night-config:toml:3.6.5')
-	include modImplementation("curse.maven:forgeconfigapiport-547434:3904745") {
+	include implementation('com.electronwill.night-config:core:3.8.1')
+	include implementation('com.electronwill.night-config:toml:3.8.1')
+	include modImplementation("curse.maven:forgeconfigapiport-547434:4583000") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 }
