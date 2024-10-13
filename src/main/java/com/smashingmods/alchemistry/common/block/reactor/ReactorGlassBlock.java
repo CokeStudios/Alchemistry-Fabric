@@ -2,7 +2,7 @@ package com.smashingmods.alchemistry.common.block.reactor;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractGlassBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.sound.BlockSoundGroup;
 
 public class ReactorGlassBlock extends AbstractGlassBlock {
