@@ -50,9 +50,10 @@ dependencies {
 	// Forge Config API
 	include implementation('com.electronwill.night-config:core:3.8.1')
 	include implementation('com.electronwill.night-config:toml:3.8.1')
-	include modImplementation("curse.maven:forgeconfigapiport-547434:4583000") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
+	modImplementation "curse.maven:forge-config-api-port-fabric-547434:4583000"
+	// include modImplementation("curse.maven:forgeconfigapiport-547434:4583000") {
+	// 	exclude(group: "net.fabricmc.fabric-api")
+	// }
 }
 
 processResources {
