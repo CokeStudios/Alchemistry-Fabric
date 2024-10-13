@@ -56,7 +56,7 @@ dependencies {
 	// }
 	// api "fuzs.forgeconfigapiport:forgeconfigapiport-common:8.0.0"
 	// modApi "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:8.0.0"
-	include implementation files('libs/ForgeConfigAPIPort-v8.0.0-1.20.1-Fabric.jar')
+	include implementation(files('libs/ForgeConfigAPIPort-v8.0.0-1.20.1-Fabric.jar'))
 }
 
 processResources {
