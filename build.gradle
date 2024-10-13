@@ -58,8 +58,8 @@ dependencies {
 	// include modImplementation("curse.maven:forgeconfigapiport-547434:4583000") {
 	// 	exclude(group: "net.fabricmc.fabric-api")
 	// }
-	api "fuzs.forgeconfigapiport:forgeconfigapiport-common:1.20.1"
-	modApi "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:1.20.1"
+	api "fuzs.forgeconfigapiport:forgeconfigapiport-common:8.0.0"
+	modApi "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:8.0.0"
 }
 
 processResources {
