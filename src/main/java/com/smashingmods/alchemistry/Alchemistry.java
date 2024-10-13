@@ -9,8 +9,8 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.text.Text;
-import net.minecraftforge.api.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
+import fuzs.forgeconfigapiport.fabric.api.ModLoadingContext;
+import fuzs.forgeconfigapiport.fabric.fml.config.ModConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
