@@ -11,7 +11,6 @@ import com.smashingmods.alchemistry.common.block.liquifier.LiquifierBlock;
 import com.smashingmods.alchemistry.common.block.reactor.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registry;
 
@@ -28,7 +27,7 @@ public class BlockRegistry {
     public static final ReactorEnergyBlock REACTOR_ENERGY = new ReactorEnergyBlock();
     public static final ReactorInputBlock REACTOR_INPUT = new ReactorInputBlock();
     public static final ReactorOutputBlock REACTOR_OUTPUT = new ReactorOutputBlock();
-    public static final Block REACTOR_CASING = new Block(FabricBlockSettings.of(Material.METAL).strength(2.0f));
+    public static final Block REACTOR_CASING = new Block(FabricBlockSettings.create().strength(2.0f));
     public static final FissionControllerBlock FISSION_CONTROLLER = new FissionControllerBlock();
     public static final FusionControllerBlock FUSION_CONTROLLER = new FusionControllerBlock();
 
