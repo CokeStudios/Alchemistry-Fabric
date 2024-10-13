@@ -21,7 +21,7 @@ public class FakeItemRenderer {
     private static final MinecraftClient MINECRAFT = MinecraftClient.getInstance();
     private static final ItemRenderer ITEM_RENDERER = MINECRAFT.getItemRenderer();
     private static final TextureManager TEXTURE_MANAGER = MINECRAFT.getTextureManager();
-    private static final Vector3f NEGATIVE_X = new Vector3f(-1, 0, 0)
+    private static final Vector3f NEGATIVE_X = new Vector3f(-1, 0, 0);
 
     public static void renderFakeItem(ItemStack pItemStack, int pX, int pY, float pAlpha) {
         if (!pItemStack.isEmpty()) {
