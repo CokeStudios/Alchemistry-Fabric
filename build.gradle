@@ -32,7 +32,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// ChemLib
-	modImplementation "com.github.CokeStudios:ChemLib-Fabric:1.20.1-228f8b4bc8-1"
+	modImplementation "com.github.CokeStudios:ChemLib-Fabric:1.20.1-1.0.4"
 
 	// Patchouli
 	modImplementation "vazkii.patchouli:Patchouli:1.20.1-84-FABRIC"
