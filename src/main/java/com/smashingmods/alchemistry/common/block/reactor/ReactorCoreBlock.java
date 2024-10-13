@@ -5,7 +5,6 @@ import com.smashingmods.alchemistry.api.blockentity.PowerStateProperty;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
@@ -17,7 +16,7 @@ import java.util.Objects;
 public class ReactorCoreBlock extends PillarBlock {
 
     public ReactorCoreBlock() {
-        super(FabricBlockSettings.of(Material.METAL).strength(2.0f));
+        super(FabricBlockSettings.create().strength(2.0f));
     }
 
     @Override
