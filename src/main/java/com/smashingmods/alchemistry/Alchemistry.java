@@ -4,7 +4,7 @@ import com.smashingmods.alchemistry.datagen.RecipeGenerator;
 import com.smashingmods.alchemistry.network.AlchemistryNetwork;
 import com.smashingmods.alchemistry.registry.*;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;

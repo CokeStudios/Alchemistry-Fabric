@@ -11,7 +11,7 @@ import com.smashingmods.alchemistry.common.block.liquifier.LiquifierBlock;
 import com.smashingmods.alchemistry.common.block.reactor.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registry;
 
