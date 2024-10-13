@@ -38,6 +38,7 @@ dependencies {
 	modImplementation "vazkii.patchouli:Patchouli:1.20.1-84-FABRIC"
 
 	// Roughly Enough Items (REI)
+	modImplementation "me.shedaniel:RoughlyEnoughItems-api-fabric:12.1.780"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:12.1.780"
 	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.1.780"
 
