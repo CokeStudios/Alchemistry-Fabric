@@ -10,7 +10,7 @@ import com.smashingmods.alchemistry.common.block.fusion.FusionControllerScreenHa
 import com.smashingmods.alchemistry.common.block.liquifier.LiquifierScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 public class ScreenRegistry {
 

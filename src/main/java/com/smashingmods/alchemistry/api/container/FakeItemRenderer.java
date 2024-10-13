@@ -14,13 +14,14 @@ import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.PlayerScreenHandler;
-import net.minecraft.util.math.Vec3f;
+import org.joml.Vector3f;
 
 public class FakeItemRenderer {
 
     private static final MinecraftClient MINECRAFT = MinecraftClient.getInstance();
     private static final ItemRenderer ITEM_RENDERER = MINECRAFT.getItemRenderer();
     private static final TextureManager TEXTURE_MANAGER = MINECRAFT.getTextureManager();
+    private static final Vector3f NEGATIVE_X = new Vector3f(-1, 0, 0)
 
     public static void renderFakeItem(ItemStack pItemStack, int pX, int pY, float pAlpha) {
         if (!pItemStack.isEmpty()) {
@@ -67,7 +68,7 @@ public class FakeItemRenderer {
 
             if (pItemStack.getItem() instanceof ElementItem element) {
                 stack.push();
-                stack.multiply(Vec3f.NEGATIVE_X.getRadialQuaternion(180));
+                stack.multiply(NEGATIVE_X.getRadialQuaternion(180));
                 stack.translate(-0.16D, 0, -0.55D);
                 stack.scale(0.05F, 0.08F, 0.08F);
                 MINECRAFT.textRenderer.drawWithShadow(stack, element.getAbbreviation(), -5, 0, 0xFFFFFF);

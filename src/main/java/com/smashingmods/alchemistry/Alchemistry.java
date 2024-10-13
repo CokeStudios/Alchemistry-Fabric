@@ -4,10 +4,11 @@ import com.smashingmods.alchemistry.datagen.RecipeGenerator;
 import com.smashingmods.alchemistry.network.AlchemistryNetwork;
 import com.smashingmods.alchemistry.registry.*;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.text.Text;
 import net.minecraftforge.api.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import org.apache.logging.log4j.LogManager;
@@ -25,10 +26,10 @@ public class Alchemistry implements ModInitializer {
     public static String MOD_ID = "alchemistry";
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final ItemGroup MACHINE_TAB = FabricItemGroupBuilder.build(
-            new Identifier(Alchemistry.MOD_ID, "machine_tab"),
-            () -> new ItemStack(ItemRegistry.ATOMIZER)
-    );
+    public static final ItemGroup MACHINE_TAB = FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.alchemistry"))
+            .icon(() -> new ItemStack(ItemRegistry.ATOMIZER))
+            .build();
 
     @Override
     public void onInitialize() {

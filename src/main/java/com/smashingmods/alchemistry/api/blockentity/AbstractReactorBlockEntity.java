@@ -13,7 +13,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3f;
+import org.joml.Vector3f;
 
 import java.util.function.Consumer;
 
@@ -46,7 +46,7 @@ public abstract class AbstractReactorBlockEntity extends AbstractInventoryBlockE
                 switch (getPowerState()) {
                     case ON -> {
                         BlockPos coreCenter = reactorShape.getCoreBoundingBox().getCenter();
-                        DustParticleEffect options = new DustParticleEffect(new Vec3f(1f, 1f, 0.5f), 0.15f);
+                        DustParticleEffect options = new DustParticleEffect(new Vector3f(1f, 1f, 0.5f), 0.15f);
                         ((ServerWorld) world).spawnParticles(options,
                                 coreCenter.getX(),
                                 coreCenter.getY(),

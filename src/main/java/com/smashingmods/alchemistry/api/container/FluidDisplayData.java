@@ -7,7 +7,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
