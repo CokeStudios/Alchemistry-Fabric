@@ -12,6 +12,10 @@ group = project.maven_group
 
 repositories {
 	// Add repositories to retrieve artifacts from in here.
+	maven {
+	    name = "Fuzs Mod Resources"
+	    url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+	}
 	mavenCentral()
 	maven { url 'https://jitpack.io' }
 	maven { url 'https://maven.blamejared.com' }
@@ -19,10 +23,6 @@ repositories {
 	maven {
 		name = 'Curse Maven'
 		url = 'https://cursemaven.com'
-	}
-	maven {
-	    name = "Fuzs Mod Resources"
-	    url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
 	}
 }
 
